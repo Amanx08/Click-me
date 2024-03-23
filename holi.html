@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Magic</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+</head>
+
+<body>
+
+    <h1>Happy Holi</h1>
+
+
+    <script>
+        let dots = [
+            'url("./ph1.png")',
+            'url("./ph2.png")', 
+            'url("./ph3.png")', 
+            'url("./ph4.png")', 
+            'url("./ph5.png")', 
+            'url("./ph6.png")', 
+            'url("./ph7.png")',
+            'url("./ph8.png")', 
+            'url("./ph9.png")',
+            'url("./ph10.png")', 
+            'url("./ph11.png")', 
+            'url("./ph12.png")',
+            'url("./ph13.png")', 
+            'url("./ph14.png")', 
+            'url("./ph15.png")',
+            'url("./ph3.png")',
+        ]
+
+        let body = document.querySelector('body');
+        body.onclick = function(e){
+            let x = e.pageX - e.target.offsetLeft;
+            let y = e.pageY - e.target.offsetTop;
+
+            let splash = document.createElement('span');
+            splash.style.left = x + 'px';
+            splash.style.top = y + 'px';
+
+            let bg = dots[Math.floor(Math.random() * dots.length)];
+            splash.style.backgroundImage = bg;
+
+
+            this.appendChild(splash);
+
+            setTimeout(() => {
+                splash.remove()
+            }, 4000)
+
+        }
+    </script>
+</body>
+
+</html>
